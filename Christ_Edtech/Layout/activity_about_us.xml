@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/about_image"
+    tools:context=".about_us">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/about_us_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="3dp"
+                android:text="@string/aboutustext"
+                android:textColor="#020202"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="-122dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="860dp"
+                android:background="#F4C000"
+                android:fontFamily="@font/audiowide"
+                android:text="THANK YOU"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textSize="40sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="284dp"
+                android:background="#FFEB3B"
+                android:fontFamily="@font/audiowide"
+                android:text="About Us "
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/call_btn"
+                android:layout_width="69dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="64dp"
+                android:background="#090909"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.286"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:srcCompat="@android:drawable/stat_sys_phone_call" />
+
+            <ImageView
+                android:id="@+id/mail_btn"
+                android:layout_width="71dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="60dp"
+                android:background="#0C0C0C"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.282"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/map_btn"
+                app:srcCompat="@android:drawable/ic_dialog_email" />
+
+            <ImageView
+                android:id="@+id/search_btn"
+                android:layout_width="72dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="60dp"
+                android:background="#090909"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.286"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mail_btn"
+                app:srcCompat="@android:drawable/ic_menu_search" />
+
+            <ImageView
+                android:id="@+id/map_btn"
+                android:layout_width="73dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="56dp"
+                android:background="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.289"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/call_btn"
+                app:srcCompat="@android:drawable/ic_dialog_map" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:fontFamily="@font/amethysta"
+                android:padding="7dp"
+                android:text="Call Us"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.267"
+                app:layout_constraintStart_toEndOf="@+id/call_btn"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="308dp"
+                android:fontFamily="@font/amethysta"
+                android:padding="7dp"
+                android:text="Mail Us"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.277"
+                app:layout_constraintStart_toEndOf="@+id/call_btn"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <EditText
+                android:id="@+id/search_txt"
+                android:layout_width="184dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="76dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Search on google"
+                android:inputType="textPersonName"
+                android:padding="7dp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textStyle="normal|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/search_btn"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="184dp"
+                android:fontFamily="@font/amethysta"
+                android:padding="7dp"
+                android:text="Find Us"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.272"
+                app:layout_constraintStart_toEndOf="@+id/call_btn"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <ImageButton
+                android:id="@+id/btn_share"
+                android:layout_width="106dp"
+                android:layout_height="98dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.211"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:srcCompat="@drawable/vec_share"
+                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:text="Share The App"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintStart_toEndOf="@+id/btn_share"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

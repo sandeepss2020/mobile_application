@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home_icon"
+        app:showAsAction="always">
+
+    </item>
+    <item android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/search_course"
+        app:showAsAction="always">
+    </item>
+    <item android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/person_icon"
+        app:showAsAction="always">
+    </item>
+
+    <item android:id="@+id/about"
+        android:title="About US"
+        android:icon="@drawable/setting_icon"
+        app:showAsAction="never">
+    </item>
+    <item android:id="@+id/camera"
+        android:title="Open Camera"
+        android:icon="@drawable/ic_camera"
+        app:showAsAction="never">
+    </item>
+
+    <item android:id="@+id/more"
+        android:title="More Items"
+        app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/phone"
+                android:title="Contact Us"
+                android:icon="@drawable/phone_icon"
+                app:showAsAction="never">
+
+            </item>
+
+            <item android:id="@+id/location"
+                android:title="Locate Us"
+                android:icon="@drawable/location_icon"
+                app:showAsAction="never">
+
+            </item>
+
+
+
+            <item android:id="@+id/message"
+                android:title="Message us"
+                android:icon="@drawable/message_icon"
+                app:showAsAction="never">
+            </item>
+
+            <item android:id="@+id/logout"
+                android:title="Log Out"
+                android:icon="@drawable/sign_out_icon"
+                app:showAsAction="never">
+
+            </item>
+        </menu>
+    </item>
+</menu>

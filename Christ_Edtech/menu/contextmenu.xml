@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/option_1"
+        android:title="Contact"
+        android:icon="@drawable/phone_icon"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/option_2"
+    android:icon="@drawable/ic_share"
+    android:title="Share" />
+
+<item
+    android:id="@+id/check_option"
+    android:title="Check Profile"
+    android:icon="@drawable/download"
+    app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/check_option2"
+        android:title="Achievements"
+        android:icon="@drawable/ic_baseline_arrow_drop_up_24"
+        app:showAsAction="ifRoom">
+
+</item>
+
+</menu>
