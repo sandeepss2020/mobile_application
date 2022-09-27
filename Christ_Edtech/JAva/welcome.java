@@ -2,13 +2,24 @@ package com.example.intente_p5;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Gravity;
@@ -28,18 +39,46 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 public class welcome extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
 
+    private static final String ACTION_UPDATE_NOTIFICATION =
+            "com.android.example.notifyme.ACTION_UPDATE_NOTIFICATION";
+    // Notification channel ID.
+    private static final String PRIMARY_CHANNEL_ID =
+            "primary_notification_channel";
+    // Notification ID.
+    private static final int NOTIFICATION_ID = 0;
+
+    private NotificationManager mNotifyManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        // Create the notification channel.
+        createNotificationChannel();
+
         TextView name = (TextView) findViewById(R.id.textView);
         Button button = (Button) findViewById(R.id.button);
         String username = getIntent().getStringExtra("keyname");
+        Button btn_noti =(Button) findViewById(R.id.btn_noti);
+
+
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("MyUserprefs", Context.MODE_PRIVATE);
         String usrnm = sp.getString("username","");
         name.setText(usrnm);
+
+// If statement
+
+        btn_noti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendNotification();
+            }
+        });
+
+
+
 
         Button btn_teacher = (Button) findViewById(R.id.btn_teacher);
 //        name.setText(username);
@@ -52,6 +91,8 @@ public class welcome extends AppCompatActivity implements PopupMenu.OnMenuItemCl
             }
         });
 
+
+
         btn_teacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +100,8 @@ public class welcome extends AppCompatActivity implements PopupMenu.OnMenuItemCl
                 startActivity(intent);
             }
         });
+
+
 
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.teal_200)));
@@ -205,6 +248,130 @@ public class welcome extends AppCompatActivity implements PopupMenu.OnMenuItemCl
 
             default:
                 return false;
+        }
+    }
+
+    public void createNotificationChannel() {
+
+        // Create a notification manager object.
+        mNotifyManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        // Notification channels are only available in OREO and higher.
+        // So, add a check on SDK version.
+        if (android.os.Build.VERSION.SDK_INT >=
+                android.os.Build.VERSION_CODES.O) {
+
+            // Create the NotificationChannel with all the parameters.
+            NotificationChannel notificationChannel = new NotificationChannel
+                    (PRIMARY_CHANNEL_ID,
+                            getString(R.string.notification_channel_name),
+                            NotificationManager.IMPORTANCE_HIGH);
+
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.enableVibration(true);
+            notificationChannel.setDescription
+                    (getString(R.string.notification_channel_description));
+
+            mNotifyManager.createNotificationChannel(notificationChannel);
+        }
+    }
+
+
+    public void sendNotification() {
+
+        // Sets up the pending intent to update the notification.
+        // Corresponds to a press of the Update Me! button.
+        Intent updateIntent = new Intent(ACTION_UPDATE_NOTIFICATION);
+        PendingIntent updatePendingIntent = PendingIntent.getBroadcast(this,
+                NOTIFICATION_ID, updateIntent, PendingIntent.FLAG_ONE_SHOT);
+
+        // Build the notification with all of the parameters using helper
+        // method.
+        NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
+
+        // Add the action button using the pending intent.
+        notifyBuilder.addAction(R.drawable.icon2,
+                getString(R.string.update), updatePendingIntent);
+
+        // Deliver the notification.
+        mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
+
+        // Enable the update and cancel buttons but disables the "Notify
+        // Me!" button.
+        setNotificationButtonState(false, true, true);
+    }
+
+    private NotificationCompat.Builder getNotificationBuilder() {
+
+        // Set up the pending intent that is delivered when the notification
+        // is clicked.
+        Intent notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://christuniversity.in/admission-all"));
+        PendingIntent notificationPendingIntent = PendingIntent.getActivity
+                (this, NOTIFICATION_ID, notificationIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Build the notification with all of the parameters.
+        NotificationCompat.Builder notifyBuilder = new NotificationCompat
+                .Builder(this, PRIMARY_CHANNEL_ID)
+                .setContentTitle(getString(R.string.notification_title))
+                .setContentText(getString(R.string.notification_text))
+                .setSmallIcon(R.drawable.icon3)
+                .setAutoCancel(true).setContentIntent(notificationPendingIntent)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setDefaults(NotificationCompat.DEFAULT_ALL);
+        return notifyBuilder;
+    }
+
+    public void updateNotification() {
+
+
+        Bitmap androidImage = BitmapFactory
+                .decodeResource(getResources(), R.drawable.icon);
+
+
+        NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
+
+
+        notifyBuilder.setStyle(new NotificationCompat.BigPictureStyle()
+                .bigPicture(androidImage)
+                .setBigContentTitle(getString(R.string.notification_updated)));
+
+        // Deliver the notification.
+        mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
+
+        // Disable the update button, leaving only the cancel button enabled.
+        setNotificationButtonState(false, false, true);
+    }
+
+
+    public void cancelNotification() {
+        // Cancel the notification.
+        mNotifyManager.cancel(NOTIFICATION_ID);
+
+        // Reset the buttons.
+        setNotificationButtonState(true, false, false);
+    }
+
+    void setNotificationButtonState(Boolean isNotifyEnabled, Boolean
+            isUpdateEnabled, Boolean isCancelEnabled) {
+//        button_notify.setEnabled(isNotifyEnabled);
+//        button_update.setEnabled(isUpdateEnabled);
+//        button_cancel.setEnabled(isCancelEnabled);
+    }
+
+
+    public class NotificationReceiver extends BroadcastReceiver {
+
+        public NotificationReceiver() {
+        }
+
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Update the notification.
+            updateNotification();
         }
     }
 
