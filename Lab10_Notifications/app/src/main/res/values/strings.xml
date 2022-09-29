@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ed-Tech</string>
+    <string name="channel_name">notifications</string>
+    <string name="channel_description">notifications</string>
+</resources>

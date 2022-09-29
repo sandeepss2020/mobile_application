@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr2"
+    tools:context=".frag_dekr">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_dekr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/abhaya_libre_medium"
+                android:padding="10dp"
+                android:text="@string/hello_blank_fragment"
+                android:textAlignment="gravity"
+                android:textColor="#FDFCFC"
+                android:textDirection="firstStrongRtl"
+                android:textIsSelectable="true"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

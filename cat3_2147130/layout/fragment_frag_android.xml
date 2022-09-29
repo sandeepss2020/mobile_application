@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5sp"
+    android:layout_marginEnd="5sp"
+    android:contentDescription="@string/image_pic"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="5sp"
+        android:padding="5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:background="#101010"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintHorizontal_bias="0.525"
+
+
+                app:layout_constraintVertical_bias="0.065"
+                app:srcCompat="@drawable/book" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="223dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="36dp"
+                android:background="#E7F3DE"
+                android:fontFamily="serif-monospace"
+                android:lineSpacingExtra="8sp"
+                android:text="@string/textview_heading"
+                android:textAlignment="center"
+                android:textColor="#081239"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:text="Cyber Security" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15sp"
+                android:fontFamily="@font/actor"
+                android:lineSpacingExtra="8sp"
+                android:text="@string/textview_text"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="16sp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:text="The global cyber threat continues to evolve at a rapid pace, with a rising number of data breaches each year. A report by RiskBased Security revealed that a shocking 7.9 billion records have been exposed by data breaches in the first nine months of 2019 alone. This figure is more than double (112%) the number of records exposed in the same period in 2018
+        Abstract  Artificial Intelligence is among the most popular terms in the 21st century. But yet not, we can say that AI has been completely developed. AI is still growing day by day in multiple ways. Earlier, AI was used to create technologies that are used to be based on Human Intelligence. AI used to work in the technologies which mainly deal with How human beings used to think, remember, work and make decisions in any particular scenario. And this is one of the reasons we used to say that Artificial Intelligence is the computerized vision of human Intelligence. But as the day passes AI overpowers us, humans, in many aspects. The amount in which modern technology is getting updated daily, its speed, and knowledge can not be handled by humans alone. With more data, information gets increases, which is becoming the need of modern-day business no matter what. From a student to a politician to a businessman, everybody and everywhere, it is the data and its information that is making a substantial impact on us and on our future generation.
+    With the increase in information, its security should be one of the significant concerns we should focus on. Cybersecurity mainly deals with the protection of data, and maintaining its privacy, is becoming the critical factor in which any organization is ready to put its best effort in order to protect its information. The ever-expanding of data breaches, cybercrimes, and malware attacks has grown like never before with the increase in the data we are creating every day. Cybersecurity has become an essential part of our lives, and to develop a software system with standard suitable algorithms" />
+
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/abhaya_libre"
+                android:text="Details"
+                android:textAlignment="center"
+                android:textColor="#01013A"
+                android:textSize="34sp"
+                android:textStyle="bold|italic" />
+
+
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:fontFamily="monospace"
+                android:text="@string/textview_4"
+                android:textAlignment="center"
+                android:textColor="#30141D"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
